@@ -41,4 +41,18 @@ public interface ScheduleRepository extends JpaRepository<ScheduleItem, Long> {
 
     boolean existsByClassroomIdAndDateAndStartTimeLessThanAndEndTimeGreaterThan(
     Long classroomId, LocalDate date, LocalTime endTime, LocalTime startTime);
+
+    List<ScheduleItem> findByTeacherId(Long teacherId);
+
+    void deleteByGroupId(Long groupId);
+
+    void deleteByTeacherId(Long teacherId);
+
+    List<ScheduleItem> findByGroup_Id(Long groupId);
+    
+    void deleteByGroup_Id(Long groupId);
+    
+    List<ScheduleItem> findByTeacher_Id(Long teacherId);
+    
+    void deleteByTeacher_Id(Long teacherId);
 }

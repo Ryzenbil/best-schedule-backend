@@ -34,6 +34,12 @@ public class GroupResolver {
 
     @PreAuthorize("hasRole('ADMIN')")
     @MutationMapping
+    public Boolean deleteGroup(@Argument Long id) {
+        return groupService.deleteGroup(id);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @MutationMapping
     public Group addStudentToGroup(@Argument Long groupId,
                                    @Argument Long studentId) {
         return groupService.addStudentToGroup(groupId, studentId);

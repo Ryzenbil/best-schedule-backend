@@ -23,4 +23,12 @@ public interface LectureRepository extends JpaRepository<Lecture, Long> {
     List<Lecture> findLecturesForStudent(Long userId, LocalDate start, LocalDate end);
 
     List<Lecture> findByDateBetween(LocalDate start, LocalDate end); 
+
+    void deleteByGroupId(Long groupId);
+
+    void deleteByTeacherId(Long teacherId);
+
+    void deleteByGroup_Id(Long groupId);
+
+    void deleteByTeacher_Id(Long teacherId);
 }

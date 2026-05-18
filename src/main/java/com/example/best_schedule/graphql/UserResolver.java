@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
@@ -43,6 +44,12 @@ public class UserResolver {
             @Argument String role
     ) {
         return userService.updateUser(id, name, email, role);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @MutationMapping
+    public Boolean deleteUser(@Argument Long id) {
+        return userService.deleteUser(id);
     }
 
     @QueryMapping

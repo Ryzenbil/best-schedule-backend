@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface SubjectGroupHoursRepository extends JpaRepository<SubjectGroupHours, Long> {
     void deleteBySubjectId(Long subjectId);
+    void deleteByGroup_Id(Long groupId);
     List<SubjectGroupHours> findByGroupId(Long groupId);
 }

@@ -16,8 +16,10 @@ type Mutation {
     register(input: RegisterInput!): User
     login(email: String!, password: String!): AuthResponse
     updateUser(id: ID!, name: String, email: String, role: String): User
+    deleteUser(id: ID!): Boolean
 
     createGroup(name: String!, course: Int, specialty: String, faculty: String): Group
+    deleteGroup(id: ID!): Boolean
     addStudentToGroup(groupId: ID!, studentId: ID!): Group
     removeStudentFromGroup(groupId: ID!, studentId: ID!): Group
 
