@@ -11,6 +11,7 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -19,6 +20,11 @@ import java.util.List;
 public class UserResolver {
 
     private final UserService userService;
+
+    @GetMapping("/health")
+    public String health() {
+        return "OK";
+    }
 
     @QueryMapping
     public List<User> users() {
